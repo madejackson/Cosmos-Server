@@ -5,14 +5,14 @@ import (
 	"time"
 	"context"
 
-	"github.com/azukaar/cosmos-server/src/docker"
-	"github.com/azukaar/cosmos-server/src/utils"
-	"github.com/azukaar/cosmos-server/src/authorizationserver"
-	"github.com/azukaar/cosmos-server/src/market"
-	"github.com/azukaar/cosmos-server/src/constellation"
-	"github.com/azukaar/cosmos-server/src/metrics"
-	"github.com/azukaar/cosmos-server/src/storage"
-	"github.com/azukaar/cosmos-server/src/cron"
+	"github.com/madejackson/cosmos-server/src/docker"
+	"github.com/madejackson/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/authorizationserver"
+	"github.com/madejackson/cosmos-server/src/market"
+	"github.com/madejackson/cosmos-server/src/constellation"
+	"github.com/madejackson/cosmos-server/src/metrics"
+	"github.com/madejackson/cosmos-server/src/storage"
+	"github.com/madejackson/cosmos-server/src/cron"
 )
 
 func main() {

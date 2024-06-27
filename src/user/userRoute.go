@@ -2,7 +2,7 @@ package user
 
 import (
 	"net/http"
-	"github.com/azukaar/cosmos-server/src/utils" 
+	"github.com/madejackson/cosmos-server/src/utils" 
 )
 
 func UsersIdRoute(w http.ResponseWriter, req *http.Request) {

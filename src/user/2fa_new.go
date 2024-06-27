@@ -6,7 +6,7 @@ import (
 	"time"
 	"math/rand"
 
-	"github.com/azukaar/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/utils"
 	"github.com/pquerna/otp/totp"
 )
 

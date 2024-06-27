@@ -1,4 +1,4 @@
-module github.com/azukaar/cosmos-server
+module github.com/madejackson/cosmos-server
 
 go 1.21
 

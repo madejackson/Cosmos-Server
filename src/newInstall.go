@@ -7,8 +7,8 @@ import (
 	"os"
 	"golang.org/x/crypto/bcrypt"	
 
-	"github.com/azukaar/cosmos-server/src/utils"
-	"github.com/azukaar/cosmos-server/src/docker"
+	"github.com/madejackson/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/docker"
 )
 
 func waitForDB() {

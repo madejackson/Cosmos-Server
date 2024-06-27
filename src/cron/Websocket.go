@@ -6,7 +6,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/azukaar/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/utils"
 )
 
 var upgrader = websocket.Upgrader{

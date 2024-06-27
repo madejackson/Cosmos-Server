@@ -3,7 +3,7 @@ package market
 import (
 	"net/http"
 	"encoding/json"
-	"github.com/azukaar/cosmos-server/src/utils" 
+	"github.com/madejackson/cosmos-server/src/utils" 
 	"time"
 )
 

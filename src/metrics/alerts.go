@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/azukaar/cosmos-server/src/utils"
-	"github.com/azukaar/cosmos-server/src/docker"
+	"github.com/madejackson/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/docker"
 )
 
 func CheckAlerts(TrackingMetric string, Period string, metric utils.AlertMetricTrack, Value int) {

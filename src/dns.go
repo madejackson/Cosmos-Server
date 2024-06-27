@@ -6,7 +6,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/azukaar/cosmos-server/src/utils" 
+	"github.com/madejackson/cosmos-server/src/utils" 
 )
 
 func CheckDNSRoute(w http.ResponseWriter, req *http.Request) {

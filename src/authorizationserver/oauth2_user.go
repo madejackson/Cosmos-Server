@@ -8,7 +8,7 @@ import (
 
 	"github.com/ory/fosite/handler/openid"
 
-	"github.com/azukaar/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/utils"
 
 )
 

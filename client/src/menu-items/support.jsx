@@ -32,7 +32,7 @@ const support = {
             id: 'github',
             title: 'Github',
             type: 'item',
-            url: 'https://github.com/azukaar/Cosmos-Server',
+            url: 'https://github.com/madejackson/cosmos-server',
             icon: GithubOutlined,
             external: true,
             target: true
@@ -50,7 +50,7 @@ const support = {
             id: 'bug',
             title: 'Found a Bug?',
             type: 'item',
-            url: 'https://github.com/azukaar/Cosmos-Server/issues/new/choose',
+            url: 'https://github.com/madejackson/cosmos-server/issues/new/choose',
             icon: BugOutlined,
             external: true,
             target: true

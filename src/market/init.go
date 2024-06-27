@@ -1,7 +1,7 @@
 package market 
 
 import (
-	"github.com/azukaar/cosmos-server/src/utils" 
+	"github.com/madejackson/cosmos-server/src/utils" 
 )
 
 func Init() {
@@ -42,8 +42,8 @@ func Init() {
 
 	// prepend the default market
 	defaultMarket := utils.MarketSource{
-		Url: "https://azukaar.github.io/cosmos-servapps-official/index.json",
-		Name: "cosmos-cloud",
+		Url: "https://madejackson.github.io/samSTORE/index.json",
+		Name: "samSTORE",
 	}
 
 	sources = append([]utils.MarketSource{defaultMarket}, sources...)

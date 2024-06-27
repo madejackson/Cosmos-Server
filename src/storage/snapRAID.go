@@ -5,8 +5,8 @@ import (
 	"errors"
 	"strings"
 	
-	"github.com/azukaar/cosmos-server/src/utils"
-	"github.com/azukaar/cosmos-server/src/cron"
+	"github.com/madejackson/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/cron"
 )
 
 func findParent(disks []BlockDevice, path string) (BlockDevice, error) {

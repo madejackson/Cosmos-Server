@@ -11,8 +11,8 @@ import (
 	"fmt"
 	
 	"github.com/gorilla/mux"
-	"github.com/azukaar/cosmos-server/src/utils" 
-	"github.com/azukaar/cosmos-server/src/docker" 
+	"github.com/madejackson/cosmos-server/src/utils" 
+	"github.com/madejackson/cosmos-server/src/docker" 
 )
 
 var validExtensions = map[string]bool{

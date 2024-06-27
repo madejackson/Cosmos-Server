@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"os"
 	"io/ioutil"
-	"github.com/azukaar/cosmos-server/src/utils" 
+	"github.com/madejackson/cosmos-server/src/utils" 
 )
 
 func ConfigApiGet(w http.ResponseWriter, req *http.Request) {

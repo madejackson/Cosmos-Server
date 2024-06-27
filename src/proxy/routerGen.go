@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/azukaar/cosmos-server/src/user"
-	"github.com/azukaar/cosmos-server/src/utils"
+	"github.com/madejackson/cosmos-server/src/user"
+	"github.com/madejackson/cosmos-server/src/utils"
 	"github.com/go-chi/httprate"
 	"github.com/gorilla/mux"
 )

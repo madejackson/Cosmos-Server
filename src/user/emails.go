@@ -3,7 +3,7 @@ package user
 import (
 	"fmt"
 	
-	"github.com/azukaar/cosmos-server/src/utils" 
+	"github.com/madejackson/cosmos-server/src/utils" 
 )
 
 func SendInviteEmail(nickname string, email string, link string) error {
