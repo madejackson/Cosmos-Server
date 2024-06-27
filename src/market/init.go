@@ -43,7 +43,7 @@ func Init() {
 	// prepend the default market
 	defaultMarket := utils.MarketSource{
 		Url: "https://madejackson.github.io/samSTORE/index.json",
-		Name: "samSTORE",
+		Name: "cosmos-cloud",
 	}
 
 	sources = append([]utils.MarketSource{defaultMarket}, sources...)
