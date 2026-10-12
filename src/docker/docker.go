@@ -169,7 +169,7 @@ func EditContainer(oldContainerID string, newConfig types.ContainerJSON, noLock 
 
 				if _, err := os.Stat(newSource); os.IsNotExist(err) {
 					utils.Log(fmt.Sprintf("Not found. Creating directory %s for bind mount", newSource))
-	
+
 					err := os.MkdirAll(newSource, 0755)
 					if err != nil {
 						utils.Error("EditContainer: Unable to create directory for bind mount", err)
@@ -300,12 +300,34 @@ func EditContainer(oldContainerID string, newConfig types.ContainerJSON, noLock 
 		}
 	}
 	
-	utils.Log("EditContainer - Networks Connected. Starting new container " + createResponse.ID)
+	// Decide whether the recreated container should be started.
+	//
+	// Previously this used the old container's momentary State.Running to decide,
+	// which is fragile: a nil/stale State (transient inspect race around a reboot
+	// or concurrent update) silently fell into the "leave stopped" branch and a
+	// *running* service was left down after an auto-update (gh-runner/Mosquitto
+	// incident: recreated at 13:22, no start, ~18 min outage until manual start).
+	//
+	// Intent of a container is stable and explicit:
+	//   - lazy containers (cosmos-lazy=true) are managed by the reaper and must
+	//     NOT be auto-started here: they sleep on purpose and wake on demand.
+	//   - every other container is expected to keep running. An update (auto or
+	//     manual) must therefore leave it started, even if the old State looked
+	//     stopped (that state is only authoritative when the user deliberately
+	//     stopped it: State != nil && !Running).
+	var runError error
+	if IsLazyLabels(newConfig.Config.Labels) {
+		utils.Log("EditContainer - Networks Connected. Lazy container, leaving new container " + createResponse.ID + " stopped (will start on demand)")
+	} else if oldContainer.State != nil && !oldContainer.State.Running {
+		utils.Log("EditContainer - Networks Connected. Previous container was stopped, leaving new container " + createResponse.ID + " stopped")
+	} else {
+		utils.Log("EditContainer - Networks Connected. Starting new container " + createResponse.ID)
 
-	runError := DockerClient.ContainerStart(DockerContext, createResponse.ID, container.StartOptions{})
+		runError = DockerClient.ContainerStart(DockerContext, createResponse.ID, container.StartOptions{})
 
-	if runError != nil {
-		utils.Error("EditContainer - Failed to run container", runError)
+		if runError != nil {
+			utils.Error("EditContainer - Failed to run container", runError)
+		}
 	}
 
 	if createError != nil || runError != nil {
@@ -502,12 +524,8 @@ func CheckUpdatesAvailable() map[string]bool {
 			continue
 		}
 
-		// check container is running 
-		if container.State != "running" {
-			utils.Log("Container " + container.Names[0] + " is not running, skipping")
-			continue
-		}
-
+		// stopped containers are checked too: the pull needs no running container, and
+		// EditContainer leaves a stopped container stopped after the update
 		rc, err := DockerPullImage(container.Image)
 		if err != nil {
 			utils.Error("CheckUpdatesAvailable", err)
